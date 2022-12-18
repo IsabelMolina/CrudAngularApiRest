@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Tareas</h1>
+  <a  class="btn btn-primary btn-block my-4" routerLink="/tareas/crear" >Crear nueva tarea</a>
+  <div class="table-responsive">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Completo</th>
+            <th scope="col">Accion</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let tarea of tareas">
+            <th scope="row"> {{ tarea.id }} </th>
+            <td> {{ tarea.userId }} </td>
+            <td> {{ tarea.title }} </td>
+            <td> {{ tarea.completed }} </td>
+            <td>
+              <a class="btn btn-warning btn-sm" [routerLink]="['/tareas/detalle', tarea.id]">Editar</a>
+              <button class="btn btn-danger btn-sm" (click)="eliminar(tarea.id)" >Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  <div>
+</div>
